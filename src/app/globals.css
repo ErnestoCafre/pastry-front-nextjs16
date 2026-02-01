@@ -1,0 +1,184 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Malva color palette - authentic mauve tones for luxury pastry brand
+   Mauve is a pale purple with gray undertones, like the mallow flower
+   Hue ~300 in OKLCH with INCREASED chroma for more visual impact */
+:root {
+  --background: oklch(0.98 0.008 300);
+  --foreground: oklch(0.20 0.04 300);
+  --card: oklch(0.99 0.006 300);
+  --card-foreground: oklch(0.20 0.04 300);
+  --popover: oklch(0.99 0.006 300);
+  --popover-foreground: oklch(0.20 0.04 300);
+  --primary: oklch(0.50 0.16 300);
+  --primary-foreground: oklch(0.99 0.006 300);
+  --secondary: oklch(0.92 0.025 300);
+  --secondary-foreground: oklch(0.30 0.06 300);
+  --muted: oklch(0.94 0.015 300);
+  --muted-foreground: oklch(0.45 0.05 300);
+  --accent: oklch(0.60 0.18 300);
+  --accent-foreground: oklch(0.99 0.006 300);
+  --destructive: oklch(0.55 0.22 27);
+  --destructive-foreground: oklch(0.98 0.01 27);
+  --border: oklch(0.85 0.025 300);
+  --input: oklch(0.90 0.02 300);
+  --ring: oklch(0.50 0.16 300);
+  --radius: 0rem;
+
+  /* Malva brand colors for special use - MORE SATURATED */
+  --malva: oklch(0.55 0.18 300);
+  --malva-light: oklch(0.75 0.12 300);
+  --malva-dark: oklch(0.35 0.14 300);
+
+  --sidebar: oklch(0.985 0.006 300);
+  --sidebar-foreground: oklch(0.20 0.04 300);
+  --sidebar-primary: oklch(0.50 0.16 300);
+  --sidebar-primary-foreground: oklch(0.985 0.006 300);
+  --sidebar-accent: oklch(0.92 0.025 300);
+  --sidebar-accent-foreground: oklch(0.30 0.06 300);
+  --sidebar-border: oklch(0.88 0.02 300);
+  --sidebar-ring: oklch(0.50 0.16 300);
+}
+
+.dark {
+  --background: oklch(0.13 0.02 300);
+  --foreground: oklch(0.95 0.012 300);
+  --card: oklch(0.15 0.025 300);
+  --card-foreground: oklch(0.95 0.012 300);
+  --popover: oklch(0.15 0.025 300);
+  --popover-foreground: oklch(0.95 0.012 300);
+  --primary: oklch(0.70 0.14 300);
+  --primary-foreground: oklch(0.13 0.02 300);
+  --secondary: oklch(0.25 0.04 300);
+  --secondary-foreground: oklch(0.90 0.012 300);
+  --muted: oklch(0.22 0.03 300);
+  --muted-foreground: oklch(0.65 0.06 300);
+  --accent: oklch(0.55 0.16 300);
+  --accent-foreground: oklch(0.95 0.012 300);
+  --destructive: oklch(0.50 0.20 25);
+  --destructive-foreground: oklch(0.95 0.012 300);
+  --border: oklch(0.30 0.035 300);
+  --input: oklch(0.25 0.03 300);
+  --ring: oklch(0.55 0.14 300);
+  --chart-1: oklch(0.65 0.18 300);
+  --chart-2: oklch(0.70 0.14 330);
+  --chart-3: oklch(0.72 0.12 270);
+  --chart-4: oklch(0.60 0.16 285);
+  --chart-5: oklch(0.58 0.18 315);
+
+  --malva: oklch(0.60 0.16 300);
+  --malva-light: oklch(0.75 0.12 300);
+  --malva-dark: oklch(0.45 0.14 300);
+
+  --sidebar: oklch(0.15 0.025 300);
+  --sidebar-foreground: oklch(0.95 0.012 300);
+  --sidebar-primary: oklch(0.70 0.14 300);
+  --sidebar-primary-foreground: oklch(0.13 0.02 300);
+  --sidebar-accent: oklch(0.25 0.04 300);
+  --sidebar-accent-foreground: oklch(0.90 0.012 300);
+  --sidebar-border: oklch(0.30 0.035 300);
+  --sidebar-ring: oklch(0.55 0.14 300);
+}
+
+@theme inline {
+  --font-sans: "Cormorant Garamond", "Cormorant Garamond Fallback", serif;
+  --font-serif: "Cormorant Garamond", "Cormorant Garamond Fallback", serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Custom animations - Tailwind v4 syntax */
+  --animate-fade-in: fade-in 1s ease-out forwards;
+  --animate-fade-in-delayed: fade-in-delayed 2s ease-out forwards;
+  --animate-fade-in-delayed-long: fade-in-delayed-long 3s ease-out forwards;
+  --animate-pulse-slow: pulse-slow 3s ease-in-out infinite;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in-delayed {
+    0%, 30% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in-delayed-long {
+    0%, 60% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-serif antialiased;
+    margin: 0;
+  }
+}
