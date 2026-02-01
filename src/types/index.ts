@@ -85,7 +85,6 @@ export interface Product {
   section_slug: string
   section_name: string
   is_highlighted: boolean
-  preparation_days: number
 }
 
 // ============================================

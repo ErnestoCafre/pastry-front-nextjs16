@@ -33,6 +33,12 @@
   --malva-light: oklch(0.75 0.12 300);
   --malva-dark: oklch(0.35 0.14 300);
 
+  --chart-1: oklch(0.55 0.18 300);
+  --chart-2: oklch(0.60 0.14 330);
+  --chart-3: oklch(0.62 0.12 270);
+  --chart-4: oklch(0.50 0.16 285);
+  --chart-5: oklch(0.48 0.18 315);
+
   --sidebar: oklch(0.985 0.006 300);
   --sidebar-foreground: oklch(0.20 0.04 300);
   --sidebar-primary: oklch(0.50 0.16 300);
