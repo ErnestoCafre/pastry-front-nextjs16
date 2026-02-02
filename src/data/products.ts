@@ -55,7 +55,7 @@ export const products: Product[] = [
     base_price: 57200,
     image: '/images/products/apple-tart-artisan-pastry-white-background-editori.jpg',
     gallery: [
-      { src: '/images/products/apple-tart-artisan-pastry-white-background-editori.jpg', alt: 'Tarta Fresas del Bosque' },
+      { src: '/images/products/apple-tart-artisan-pastry-white-background-editori.jpg', alt: 'Tarta Pasta Frola' },
     ],
     section_slug: 'tartas',
     section_name: 'Tartas',
