@@ -12,17 +12,18 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import { SearchOverlay } from '@/components/search/search-overlay'
 
 interface HeaderProps {
   storeName?: string
-  onSearchClick?: () => void
 }
 
-export function Header({ storeName = 'Malva', onSearchClick }: HeaderProps) {
+export function Header({ storeName = 'Malva' }: HeaderProps) {
   const { isVisible, isAtTop } = useScrollDirection()
   const pathname = usePathname()
   const router = useRouter()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
 
   const handleContactClick = (e: React.MouseEvent) => {
     e.preventDefault()
@@ -110,7 +111,7 @@ export function Header({ storeName = 'Malva', onSearchClick }: HeaderProps) {
               </button>
 
               <button
-                onClick={onSearchClick}
+                onClick={() => setIsSearchOpen(true)}
                 className={`p-2 -m-2 transition-colors duration-500 ${
                   isAtTop
                     ? 'text-foreground/70 hover:text-foreground'
@@ -125,7 +126,7 @@ export function Header({ storeName = 'Malva', onSearchClick }: HeaderProps) {
             {/* Mobile: Search + Menu */}
             <div className="md:hidden flex items-center gap-4">
               <button
-                onClick={onSearchClick}
+                onClick={() => setIsSearchOpen(true)}
                 className="text-foreground p-2 -m-2"
                 aria-label="Buscar"
               >
@@ -162,6 +163,8 @@ export function Header({ storeName = 'Malva', onSearchClick }: HeaderProps) {
           }`}
         />
       </header>
+
+      <SearchOverlay isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
 
       {/* Mobile Navigation Drawer */}
       {isMobileMenuOpen && (

@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { products, getProductById, getRelatedProducts } from '@/data'
-import { ProductClient } from '@/components/product/product-client'
 import { ProductDetail } from '@/components/product/product-detail'
 import { Footer } from '@/components/layout/footer'
 import { formatPrice } from '@/lib/format'
@@ -37,9 +36,9 @@ export default async function ProductoPage({ params }: PageProps) {
   const relatedProducts = getRelatedProducts(product)
 
   return (
-    <ProductClient>
+    <>
       <ProductDetail product={product} relatedProducts={relatedProducts} />
       <Footer />
-    </ProductClient>
+    </>
   )
 }

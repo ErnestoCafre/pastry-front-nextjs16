@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { sections, getSectionBySlug, getProductsBySection } from '@/data'
-import { CatalogClient } from '@/components/catalog/catalog-client'
 import { SectionHeader } from '@/components/catalog/section-header'
 import { SectionContent } from '@/components/catalog/section-content'
 import { Footer } from '@/components/layout/footer'
@@ -37,7 +36,7 @@ export default async function CatalogoPage({ params }: PageProps) {
   const products = getProductsBySection(slug)
 
   return (
-    <CatalogClient>
+    <>
       <div className="pt-24 md:pt-32 px-8 md:px-16">
         <div className="mx-auto max-w-7xl">
           <SectionHeader section={section} />
@@ -45,6 +44,6 @@ export default async function CatalogoPage({ params }: PageProps) {
         </div>
       </div>
       <Footer />
-    </CatalogClient>
+    </>
   )
 }
