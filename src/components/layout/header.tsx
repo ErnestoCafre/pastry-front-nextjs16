@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { usePathname, useRouter } from 'next/navigation'
 import { ChevronDown, Search, X } from 'lucide-react'
 import { sections } from '@/data'
 import { useScrollDirection } from '@/hooks/use-scroll-direction'
@@ -20,28 +19,13 @@ interface HeaderProps {
 
 export function Header({ storeName = 'Malva' }: HeaderProps) {
   const { isVisible, isAtTop } = useScrollDirection()
-  const pathname = usePathname()
-  const router = useRouter()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isSearchOpen, setIsSearchOpen] = useState(false)
 
   const handleContactClick = (e: React.MouseEvent) => {
     e.preventDefault()
     setIsMobileMenuOpen(false)
-
-    const scrollToContact = () => {
-      const contactElement = document.getElementById('contacto')
-      if (contactElement) {
-        contactElement.scrollIntoView({ behavior: 'smooth' })
-      }
-    }
-
-    if (pathname === '/') {
-      scrollToContact()
-    } else {
-      router.push('/')
-      setTimeout(scrollToContact, 100)
-    }
+    document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
@@ -100,7 +84,7 @@ export function Header({ storeName = 'Malva' }: HeaderProps) {
 
               <button
                 onClick={handleContactClick}
-                className={`group relative text-sm tracking-[0.2em] uppercase transition-all duration-300 ${
+                className={`group relative text-sm tracking-[0.2em] uppercase transition-all duration-300 cursor-pointer ${
                   isAtTop
                     ? 'text-foreground/70 hover:text-foreground'
                     : 'text-muted-foreground hover:text-primary'
