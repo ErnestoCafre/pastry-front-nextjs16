@@ -1,16 +1,5 @@
 import type { SVGProps } from 'react'
-
-export type SocialPlatform =
-  | 'whatsapp'
-  | 'instagram'
-  | 'facebook'
-  | 'tiktok'
-  | 'twitter'
-  | 'youtube'
-  | 'linkedin'
-  | 'pinterest'
-  | 'telegram'
-  | 'other'
+import type { SocialPlatform } from '@/types'
 
 interface IconProps extends SVGProps<SVGSVGElement> {
   className?: string

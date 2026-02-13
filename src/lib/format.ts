@@ -1,4 +1,4 @@
-export function isValidPrice(price: unknown): price is number {
+function isValidPrice(price: unknown): price is number {
   return typeof price === 'number' && !isNaN(price) && price >= 0
 }
 
@@ -14,13 +14,4 @@ export function formatPrice(
 
   if (!isValidPrice(price)) return fallback
   return `${symbol}${price.toLocaleString('es-AR', { minimumFractionDigits: decimals, maximumFractionDigits: decimals })}`
-}
-
-export function pluralize(
-  count: number,
-  singular: string,
-  plural?: string
-): string {
-  const word = count === 1 ? singular : (plural || `${singular}s`)
-  return `${count} ${word}`
 }
