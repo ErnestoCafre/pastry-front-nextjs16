@@ -58,17 +58,12 @@ function HeroContent({
   ctaText?: string
   ctaUrl?: string
 }) {
-  const [visibleWords, setVisibleWords] = useState<number[]>([])
+  const [visibleCount, setVisibleCount] = useState(0)
 
   useEffect(() => {
-    const timeouts: ReturnType<typeof setTimeout>[] = []
-    words.forEach((_, index) => {
-      const timeout = setTimeout(() => {
-        setVisibleWords((prev) => [...prev, index])
-      }, 800 + index * 200)
-      timeouts.push(timeout)
-    })
-
+    const timeouts = words.map((_, index) =>
+      setTimeout(() => setVisibleCount(index + 1), 800 + index * 200)
+    )
     return () => timeouts.forEach(clearTimeout)
   }, [words.length])
 
@@ -103,7 +98,7 @@ function HeroContent({
             <span
               key={index}
               className={`inline-block mr-[0.3em] transition-all duration-700 ease-out ${
-                visibleWords.includes(index)
+                index < visibleCount
                   ? 'opacity-100 translate-y-0 blur-0'
                   : 'opacity-0 translate-y-8 blur-sm'
               }`}
