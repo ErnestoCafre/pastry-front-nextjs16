@@ -2,11 +2,10 @@
 
 import { Suspense } from 'react'
 import { useProductFilters } from '@/hooks/use-product-filters'
-import { useIsMobile } from '@/hooks/use-mobile'
 import { ProductCard } from './product-card'
 import { ProductFilters } from './product-filters'
 import { MobileFiltersButton } from './mobile-filters'
-import type { Product, FilterValues } from '@/types'
+import type { Product } from '@/types'
 
 interface SectionContentProps {
   products: Product[]
@@ -22,42 +21,33 @@ function SectionContentInner({ products }: SectionContentProps) {
     isFiltersOpen,
     setIsFiltersOpen,
   } = useProductFilters(products)
-  const isMobile = useIsMobile()
-
-  const handleFiltersChange = (newFilters: FilterValues) => {
-    setFilters(newFilters)
-  }
 
   return (
     <div className="mt-8 md:mt-12 pb-16 md:pb-24">
       {/* Mobile filters button */}
-      {isMobile && (
-        <div className="mb-6">
-          <MobileFiltersButton
-            isOpen={isFiltersOpen}
-            onOpenChange={setIsFiltersOpen}
-            activeFiltersCount={activeFiltersCount}
-            filters={filters}
-            onFiltersChange={handleFiltersChange}
-            onClear={clearFilters}
-          />
-        </div>
-      )}
+      <div className="mb-6 md:hidden">
+        <MobileFiltersButton
+          isOpen={isFiltersOpen}
+          onOpenChange={setIsFiltersOpen}
+          activeFiltersCount={activeFiltersCount}
+          filters={filters}
+          onFiltersChange={setFilters}
+          onClear={clearFilters}
+        />
+      </div>
 
       {/* Layout: Filters sidebar + Products grid */}
       <div className="flex gap-12 lg:gap-16">
         {/* Desktop sidebar filters */}
-        {!isMobile && (
-          <aside className="w-64 flex-shrink-0">
-            <div className="sticky top-32">
-              <ProductFilters
-                filters={filters}
-                onFiltersChange={handleFiltersChange}
-                onClear={clearFilters}
-              />
-            </div>
-          </aside>
-        )}
+        <aside className="hidden md:block w-64 flex-shrink-0">
+          <div className="sticky top-32">
+            <ProductFilters
+              filters={filters}
+              onFiltersChange={setFilters}
+              onClear={clearFilters}
+            />
+          </div>
+        </aside>
 
         {/* Products section */}
         <div className="flex-1 min-w-0">
