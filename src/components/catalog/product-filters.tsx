@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Search, X, SlidersHorizontal } from 'lucide-react'
 import { useDebounce } from '@/hooks/use-debounce'
 import type { SortOption, FilterValues } from '@/types'
@@ -36,11 +36,15 @@ export function ProductFilters({
 
   const debouncedSearch = useDebounce(localSearch, 400)
 
+  const filtersRef = useRef(filters)
+  filtersRef.current = filters
+
   useEffect(() => {
-    if (debouncedSearch !== filters.search) {
-      onFiltersChange({ ...filters, search: debouncedSearch || undefined })
+    const currentFilters = filtersRef.current
+    if (debouncedSearch !== (currentFilters.search ?? '')) {
+      onFiltersChange({ ...currentFilters, search: debouncedSearch || undefined })
     }
-  }, [debouncedSearch])
+  }, [debouncedSearch, onFiltersChange])
 
   useEffect(() => {
     setLocalMinPrice(filters.min_price?.toString() || '')
