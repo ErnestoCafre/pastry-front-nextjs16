@@ -4,10 +4,11 @@ import type { Section } from '@/types'
 
 interface SectionHeaderProps {
   section: Section
+  productsCount: number
   className?: string
 }
 
-export function SectionHeader({ section, className = '' }: SectionHeaderProps) {
+export function SectionHeader({ section, productsCount, className = '' }: SectionHeaderProps) {
   return (
     <div className={`space-y-6 ${className}`}>
       {/* Breadcrumb */}
@@ -46,8 +47,8 @@ export function SectionHeader({ section, className = '' }: SectionHeaderProps) {
         )}
 
         <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground/70 pt-2">
-          {section.products_count}{' '}
-          {section.products_count === 1 ? 'producto' : 'productos'}
+          {productsCount}{' '}
+          {productsCount === 1 ? 'producto' : 'productos'}
         </p>
 
         <div className="h-px bg-border" />

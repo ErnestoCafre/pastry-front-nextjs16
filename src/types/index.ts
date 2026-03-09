@@ -68,7 +68,6 @@ export interface Section {
   slug: string
   description: string
   image: string
-  products_count: number
 }
 
 // ============================================

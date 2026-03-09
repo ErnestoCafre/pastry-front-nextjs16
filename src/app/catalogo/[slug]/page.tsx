@@ -40,7 +40,7 @@ export default async function CatalogoPage({ params }: PageProps) {
     <CatalogClient>
       <div className="pt-24 md:pt-32 px-8 md:px-16">
         <div className="mx-auto max-w-7xl">
-          <SectionHeader section={section} />
+          <SectionHeader section={section} productsCount={products.length} />
           <SectionContent products={products} />
         </div>
       </div>

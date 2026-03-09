@@ -113,6 +113,7 @@ export function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
                       src={product.image}
                       alt={product.name}
                       fill
+                      sizes="64px"
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                   </div>
