@@ -7,8 +7,7 @@ export const sections: Section[] = [
     slug: 'pasteles',
     description:
       'Pasteles artesanales elaborados con los mejores ingredientes. Cada creación es una obra de arte diseñada para momentos especiales.',
-    image: '/images/sections/pasteles.png',
-    products_count: 12,
+    image: '/images/sections/pasteles.webp',
   },
   {
     id: 2,
@@ -16,8 +15,7 @@ export const sections: Section[] = [
     slug: 'tartas',
     description:
       'Tartas clásicas y contemporáneas que combinan tradición y creatividad. Perfectas para celebraciones y sobremesas inolvidables.',
-    image: '/images/sections/tartas.png',
-    products_count: 4,
+    image: '/images/sections/tartas.webp',
   },
   {
     id: 3,
@@ -25,7 +23,6 @@ export const sections: Section[] = [
     slug: 'otros',
     description:
       'Otros productos de pastelería.',
-    image: '/images/sections/otros.png',
-    products_count: 5,
+    image: '/images/sections/otros.webp',
   },
 ]

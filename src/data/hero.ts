@@ -6,5 +6,5 @@ export const heroConfig: HeroConfig = {
     'Creaciones artesanales que celebran los sabores más auténticos de la tradición europea.',
   cta_text: 'Descubrir',
   cta_url: '#pasteles',
-  image: 'images/hero/malva-hero.png',
+  image: '/images/hero/malva-hero.webp',
 }
