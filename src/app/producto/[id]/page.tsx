@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ChevronRight } from 'lucide-react'
 import { products, getProductById, getRelatedProducts } from '@/data'
-import { CatalogClient } from '@/components/catalog/catalog-client'
+import { PageShell } from '@/components/catalog/catalog-client'
 import { ProductDetail } from '@/components/product/product-detail'
 import { ProductCard } from '@/components/catalog/product-card'
 import { Footer } from '@/components/layout/footer'
@@ -39,7 +39,7 @@ export default async function ProductoPage({ params }: PageProps) {
   const relatedProducts = getRelatedProducts(product, 3)
 
   return (
-    <CatalogClient>
+    <PageShell>
       <div className="pt-24 md:pt-32 px-8 md:px-16">
         <div className="mx-auto max-w-7xl">
           {/* Breadcrumb */}
@@ -91,6 +91,6 @@ export default async function ProductoPage({ params }: PageProps) {
         </div>
       </div>
       <Footer />
-    </CatalogClient>
+    </PageShell>
   )
 }
