@@ -1,5 +1,7 @@
 # Malva — Pastelería Artesanal
 
+> **Demo en vivo:** [pastry-front-nextjs16.vercel.app](https://pastry-front-nextjs16.vercel.app/)
+
 Sitio web catálogo estático para **Malva**, una pastelería artesanal. Construido con **Next.js 16**, **React 19**, **TypeScript** y **Tailwind CSS v4**.
 
 ## Funcionalidades
@@ -34,7 +36,7 @@ src/
 │   ├── search/             # Overlay de búsqueda
 │   └── ui/                 # Dropdown, íconos sociales
 ├── data/                   # Datos estáticos (22 productos, 3 secciones, contacto, hero)
-├── hooks/                  # useDebounce, useIsMobile, useProductFilters, useScrollDirection
+├── hooks/                  # useDebounce, useProductFilters, useScrollDirection
 ├── lib/                    # Filtros, formateo de precios (es-AR), cn()
 └── types/                  # Tipos del dominio (Product, Section, ContactInfo, etc.)
 ```
